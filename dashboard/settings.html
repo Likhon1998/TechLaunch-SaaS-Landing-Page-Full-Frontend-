@@ -29,7 +29,6 @@
             --sidebar-bg: #1e293b;
             --sidebar-hover: #334155;
             
-            /* Custom colors for this page */
             --success-bg: rgba(16, 185, 129, 0.1);
             --danger-bg: rgba(239, 68, 68, 0.1);
             --primary-bg: rgba(155, 135, 245, 0.1);
@@ -49,7 +48,7 @@
             overflow-x: hidden;
         }
 
-        /* Sidebar Styles (Identical to index.html) */
+        /* Sidebar Styles (Identical) */
         .sidebar {
             position: fixed;
             top: 0;
@@ -62,13 +61,11 @@
             transition: all 0.3s ease;
             box-shadow: 4px 0 24px rgba(0, 0, 0, 0.12);
         }
-
         .sidebar-brand {
             padding: 0 1.5rem 2rem;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             margin-bottom: 2rem;
         }
-
         .sidebar-brand h3 {
             color: var(--white-color);
             font-weight: 700;
@@ -77,21 +74,12 @@
             align-items: center;
             gap: 0.75rem;
         }
-
         .sidebar-brand i {
             font-size: 1.8rem;
             color: var(--primary-color);
         }
-
-        .sidebar-menu {
-            list-style: none;
-            padding: 0;
-        }
-
-        .sidebar-menu li {
-            margin-bottom: 0.25rem;
-        }
-
+        .sidebar-menu { list-style: none; padding: 0; }
+        .sidebar-menu li { margin-bottom: 0.25rem; }
         .sidebar-menu a {
             display: flex;
             align-items: center;
@@ -104,31 +92,25 @@
             font-weight: 500;
             font-size: 0.95rem;
         }
-
         .sidebar-menu a:hover {
             background: var(--sidebar-hover);
             color: var(--white-color);
         }
-
         .sidebar-menu a.active {
             background: var(--sidebar-hover);
             border-left-color: var(--primary-color);
             color: var(--white-color);
         }
+        .sidebar-menu i { font-size: 1.1rem; width: 24px; }
 
-        .sidebar-menu i {
-            font-size: 1.1rem;
-            width: 24px;
-        }
-
-        /* Main Content (Identical to index.html) */
+        /* Main Content (Identical) */
         .main-content {
             margin-left: 280px;
             min-height: 100vh;
             transition: all 0.3s ease;
         }
 
-        /* Top Navigation (Identical to index.html) */
+        /* Top Navigation (Identical) */
         .top-nav {
             background: var(--white-color);
             padding: 1.5rem 2rem;
@@ -141,12 +123,7 @@
             top: 0;
             z-index: 100;
         }
-
-        .search-bar {
-            position: relative;
-            width: 400px;
-        }
-
+        .search-bar { position: relative; width: 400px; }
         .search-bar input {
             width: 100%;
             padding: 0.75rem 1rem 0.75rem 3rem;
@@ -156,13 +133,11 @@
             transition: all 0.3s ease;
             background: var(--background-color);
         }
-
         .search-bar input:focus {
             outline: none;
             border-color: var(--primary-color);
             box-shadow: 0 0 0 3px rgba(155, 135, 245, 0.1);
         }
-
         .search-bar i {
             position: absolute;
             left: 1.2rem;
@@ -170,13 +145,7 @@
             transform: translateY(-50%);
             color: var(--text-light);
         }
-
-        .nav-actions {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-        }
-
+        .nav-actions { display: flex; align-items: center; gap: 1.5rem; }
         .notification-btn button {
             background: var(--background-color);
             border: none;
@@ -191,13 +160,11 @@
             position: relative;
             color: var(--text-medium);
         }
-
         .notification-btn button:hover {
             background: var(--primary-color);
             color: white;
             transform: translateY(-2px);
         }
-
         .notification-badge {
             position: absolute;
             top: -5px;
@@ -213,7 +180,6 @@
             justify-content: center;
             font-weight: 600;
         }
-
         .profile-avatar {
             width: 45px;
             height: 45px;
@@ -228,35 +194,25 @@
             transition: all 0.3s ease;
             font-size: 0.9rem;
         }
-
         .profile-avatar:hover {
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
         }
         
-        /* === New Styles for settings.html === */
+        /* === Styles for settings.html === */
         
         .dashboard-content {
             padding: 0 2rem 2rem;
         }
         
-        /* Page Header */
-        .page-header {
-            margin-bottom: 2rem;
-        }
-        
-        .page-header h1 {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--text-dark);
-        }
+        .page-header { margin-bottom: 2rem; }
+        .page-header h1 { font-size: 2rem; font-weight: 700; color: var(--text-dark); }
         
         /* Settings Tabs */
         .nav-tabs {
             border-bottom: 2px solid var(--border-color);
             margin-bottom: 2rem;
         }
-        
         .nav-tabs .nav-link {
             font-weight: 600;
             font-size: 1rem;
@@ -265,13 +221,11 @@
             border-bottom: 4px solid transparent;
             padding: 1rem 1.5rem;
         }
-        
         .nav-tabs .nav-link.active {
             color: var(--primary-dark);
             border-bottom-color: var(--primary-dark);
             background: transparent;
         }
-        
         .nav-tabs .nav-link:hover:not(.active) {
             color: var(--text-dark);
             border-bottom-color: var(--border-color);
@@ -311,19 +265,18 @@
             transition: all 0.3s ease;
             background: var(--background-color);
         }
-
         .form-control:focus {
             outline: none;
             border-color: var(--primary-color);
             box-shadow: 0 0 0 3px rgba(155, 135, 245, 0.1);
             background: var(--white-color);
         }
-        
         .form-control:disabled {
             background: var(--border-color);
             opacity: 0.7;
         }
         
+        /* Buttons */
         .btn-primary-custom {
             background: var(--primary-dark);
             color: var(--white-color);
@@ -334,7 +287,6 @@
             font-size: 0.95rem;
             transition: all 0.3s ease;
         }
-        
         .btn-primary-custom:hover {
             background: var(--primary-color);
             transform: translateY(-2px);
@@ -351,10 +303,24 @@
             font-size: 0.95rem;
             transition: all 0.3s ease;
         }
-        
         .btn-outline-custom:hover {
             border-color: var(--text-dark);
             color: var(--text-dark);
+        }
+        
+        .btn-success-custom {
+            background: var(--success-bg);
+            color: var(--success-color);
+            border: 2px solid var(--success-bg);
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+        .btn-success-custom:hover {
+            background: var(--success-color);
+            color: var(--white-color);
         }
         
         .btn-danger-custom {
@@ -367,10 +333,23 @@
             font-size: 0.95rem;
             transition: all 0.3s ease;
         }
-        
         .btn-danger-custom:hover {
             background: var(--danger-color);
             color: var(--white-color);
+        }
+        
+        .btn-danger-solid {
+            background: var(--danger-color);
+            color: var(--white-color);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+        .btn-danger-solid:hover {
+            background: #c0392b; /* Darker red */
         }
         
         .billing-info {
@@ -382,20 +361,28 @@
             border-radius: 1rem;
             border: 2px solid var(--primary-color);
         }
+        .billing-info p { margin: 0; font-weight: 500; color: var(--text-dark); }
+        .billing-info .plan-name { font-weight: 600; font-size: 1.1rem; color: var(--primary-dark); }
         
-        .billing-info p {
-            margin: 0;
-            font-weight: 500;
-            color: var(--text-dark);
+        /* Modal Styling */
+        .modal-content {
+            border-radius: 1.5rem;
+            border: none;
+            background: var(--white-color);
         }
-        
-        .billing-info .plan-name {
-            font-weight: 600;
-            font-size: 1.1rem;
-            color: var(--primary-dark);
+        .modal-header {
+            border-bottom: 1px solid var(--border-color);
+            padding: 1.5rem;
         }
+        .modal-header .btn-close {
+            background: none;
+            font-size: 1.2rem;
+        }
+        .modal-title { font-weight: 600; color: var(--text-dark); }
+        .modal-body { padding: 1.5rem; }
+        .modal-footer { border-top: 1px solid var(--border-color); padding: 1.5rem; }
         
-        /* Responsive */
+        /* Responsive (Identical) */
         @media (max-width: 992px) {
             .sidebar { transform: translateX(-100%); }
             .sidebar.active { transform: translateX(0); }
@@ -414,7 +401,7 @@
         @media (max-width: 992px) { .menu-toggle { display: flex; align-items: center; justify-content: center; } }
         .sidebar-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 999; }
         .sidebar-overlay.active { display: block; }
-        /* End Responsive */
+        
     </style>
 </head>
 <body>
@@ -531,30 +518,30 @@
                                 <p>Your current plan is</p>
                                 <p class="plan-name">Professional Plan</p>
                             </div>
-                            <button class="btn-outline-custom">Change Plan</button>
+                            <a href="../checkout/pricing.html" class="btn-outline-custom">Change Plan</a>
                         </div>
                         
                         <h5>Payment Method</h5>
                         <div class="d-flex align-items-center justify-content-between p-3 border rounded-3">
-                            <div class_ ="d-flex align-items-center gap-3">
+                            <div class="d-flex align-items-center gap-3">
                                 <i class="fab fa-cc-visa fa-2x" style="color: #1a1f71;"></i>
                                 <div>
                                     <p class="mb-0 fw-bold">Visa ending in 1234</p>
                                     <p class="mb-0 text-medium">Expires 12/2028</p>
                                 </div>
                             </div>
-                            <button class="btn-outline-custom btn-sm">Edit</button>
+                            <button class="btn-outline-custom btn-sm" data-bs-toggle="modal" data-bs-target="#editPaymentModal">Edit</button>
                         </div>
                     </div>
                     
-                    <div class="content-card">
+                    <div class="content-card" id="dangerZoneCard">
                         <h3>Danger Zone</h3>
                         <div class="d-flex align-items-center justify-content-between p-3 border border-danger rounded-3">
                             <div>
                                 <p class="mb-0 fw-bold">Cancel Subscription</p>
                                 <p class="mb-0 text-medium">Your plan will be cancelled at the end of the current billing period.</p>
                             </div>
-                            <button class="btn-danger-custom">Cancel Subscription</button>
+                            <button class="btn-danger-custom" data-bs-toggle="modal" data-bs-target="#cancelSubModal">Cancel Subscription</button>
                         </div>
                     </div>
                 </div>
@@ -562,6 +549,65 @@
             
         </div>
     </main>
+    
+    <div class="modal fade" id="editPaymentModal" tabindex="-1" aria-labelledby="editPaymentModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editPaymentModalLabel">Update Payment Method</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="cardName" class="form-label">Name on Card</label>
+                            <input type="text" class="form-control" id="cardName" value="John Doe">
+                        </div>
+                        <div class="mb-3">
+                            <label for="cardNumber" class="form-label">Card Number</label>
+                            <input type="text" class="form-control" id="cardNumber" placeholder="•••• •••• •••• 1234">
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="cardExpiry" class="form-label">Expiry (MM/YY)</label>
+                                <input type="text" class="form-control" id="cardExpiry" placeholder="12/28">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="cardCVC" class="form-label">CVC</label>
+                                <input type="text" class="form-control" id="cardCVC" placeholder="•••">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-outline-custom" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn-primary-custom" data-bs-dismiss="modal">Save Changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="cancelSubModal" tabindex="-1" aria-labelledby="cancelSubModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header" style="border-bottom-color: var(--danger-color);">
+                    <h5 class="modal-title" id="cancelSubModalLabel" style="color: var(--danger-color);">
+                        <i class="fas fa-exclamation-triangle me-2"></i>Are you sure?
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>You are about to cancel your <strong class="text-dark">Professional Plan</strong> subscription.</p>
+                    <p class="text-medium">Your plan will remain active until the end of your billing period on **Nov 30, 2025**. You will lose access to all professional features after this date.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-outline-custom" data-bs-dismiss="modal">Nevermind</button>
+                    <button type="button" class="btn-danger-solid" data-bs-dismiss="modal" id="confirmCancelBtn">Yes, Cancel Subscription</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <button class="menu-toggle" id="menuToggle">
         <i class="fas fa-bars"></i>
@@ -570,7 +616,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-        // Mobile Menu Toggle (Identical to index.html)
+        // Mobile Menu Toggle
         const menuToggle = document.getElementById('menuToggle');
         const sidebar = document.getElementById('sidebar');
         const sidebarOverlay = document.getElementById('sidebarOverlay');
@@ -585,7 +631,6 @@
             sidebarOverlay.classList.remove('active');
         });
 
-        // Close sidebar when clicking a link on mobile
         document.querySelectorAll('.sidebar-menu a').forEach(link => {
             link.addEventListener('click', () => {
                 if (window.innerWidth <= 992) {
@@ -594,6 +639,50 @@
                 }
             });
         });
+        
+        
+        // === JAVASCRIPT FOR CANCELLATION & RE-ACTIVATION ===
+        
+        const dangerZoneCard = document.getElementById('dangerZoneCard');
+        // Store the original HTML of the card
+        const originalDangerZoneHTML = dangerZoneCard.innerHTML;
+        
+        // Get the current date and format it
+        const today = new Date();
+        const endDate = new Date(today.getFullYear(), today.getMonth() + 1, 0); // End of current month
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        const formattedDate = endDate.toLocaleDateString('en-US', options);
+
+        // Define the HTML for the "Cancelled" state
+        const cancelledDangerZoneHTML = `
+            <h3>Subscription Cancelled</h3>
+            <div class="d-flex align-items-center justify-content-between p-3 border border-warning rounded-3" style="background-color: var(--warning-bg);">
+                <div>
+                    <p class="mb-0 fw-bold" style="color: var(--warning-color);">Your plan is scheduled to be cancelled.</p>
+                    <p class="mb-0 text-medium">You will lose access on ${formattedDate}.</p>
+                </div>
+                <button class="btn-success-custom" id="reactivateBtn">Re-activate Plan</button>
+            </div>
+        `;
+        
+        // Use event delegation to listen for clicks on the document
+        document.body.addEventListener('click', function(event) {
+            
+            // --- Logic for CANCELLING ---
+            if (event.target.id === 'confirmCancelBtn') {
+                // User clicked "Yes, Cancel Subscription" in the modal
+                dangerZoneCard.innerHTML = cancelledDangerZoneHTML;
+            }
+            
+            // --- Logic for RE-ACTIVATING ---
+            if (event.target.id === 'reactivateBtn') {
+                // User clicked "Re-activate Plan"
+                // Restore the original HTML
+                dangerZoneCard.innerHTML = originalDangerZoneHTML;
+            }
+            
+        });
+        
     </script>
 </body>
 </html>

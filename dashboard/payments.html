@@ -29,7 +29,6 @@
             --sidebar-bg: #1e293b;
             --sidebar-hover: #334155;
             
-            /* Custom colors for this page */
             --success-bg: rgba(16, 185, 129, 0.1);
             --danger-bg: rgba(239, 68, 68, 0.1);
             --primary-bg: rgba(155, 135, 245, 0.1);
@@ -49,7 +48,7 @@
             overflow-x: hidden;
         }
 
-        /* Sidebar Styles (Identical to index.html) */
+        /* Sidebar Styles (Identical) */
         .sidebar {
             position: fixed;
             top: 0;
@@ -62,13 +61,11 @@
             transition: all 0.3s ease;
             box-shadow: 4px 0 24px rgba(0, 0, 0, 0.12);
         }
-
         .sidebar-brand {
             padding: 0 1.5rem 2rem;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             margin-bottom: 2rem;
         }
-
         .sidebar-brand h3 {
             color: var(--white-color);
             font-weight: 700;
@@ -77,21 +74,12 @@
             align-items: center;
             gap: 0.75rem;
         }
-
         .sidebar-brand i {
             font-size: 1.8rem;
             color: var(--primary-color);
         }
-
-        .sidebar-menu {
-            list-style: none;
-            padding: 0;
-        }
-
-        .sidebar-menu li {
-            margin-bottom: 0.25rem;
-        }
-
+        .sidebar-menu { list-style: none; padding: 0; }
+        .sidebar-menu li { margin-bottom: 0.25rem; }
         .sidebar-menu a {
             display: flex;
             align-items: center;
@@ -104,31 +92,25 @@
             font-weight: 500;
             font-size: 0.95rem;
         }
-
         .sidebar-menu a:hover {
             background: var(--sidebar-hover);
             color: var(--white-color);
         }
-
         .sidebar-menu a.active {
             background: var(--sidebar-hover);
             border-left-color: var(--primary-color);
             color: var(--white-color);
         }
+        .sidebar-menu i { font-size: 1.1rem; width: 24px; }
 
-        .sidebar-menu i {
-            font-size: 1.1rem;
-            width: 24px;
-        }
-
-        /* Main Content (Identical to index.html) */
+        /* Main Content (Identical) */
         .main-content {
             margin-left: 280px;
             min-height: 100vh;
             transition: all 0.3s ease;
         }
 
-        /* Top Navigation (Identical to index.html) */
+        /* Top Navigation (Identical) */
         .top-nav {
             background: var(--white-color);
             padding: 1.5rem 2rem;
@@ -141,12 +123,7 @@
             top: 0;
             z-index: 100;
         }
-
-        .search-bar {
-            position: relative;
-            width: 400px;
-        }
-
+        .search-bar { position: relative; width: 400px; }
         .search-bar input {
             width: 100%;
             padding: 0.75rem 1rem 0.75rem 3rem;
@@ -156,13 +133,11 @@
             transition: all 0.3s ease;
             background: var(--background-color);
         }
-
         .search-bar input:focus {
             outline: none;
             border-color: var(--primary-color);
             box-shadow: 0 0 0 3px rgba(155, 135, 245, 0.1);
         }
-
         .search-bar i {
             position: absolute;
             left: 1.2rem;
@@ -170,13 +145,7 @@
             transform: translateY(-50%);
             color: var(--text-light);
         }
-
-        .nav-actions {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-        }
-
+        .nav-actions { display: flex; align-items: center; gap: 1.5rem; }
         .notification-btn button {
             background: var(--background-color);
             border: none;
@@ -191,13 +160,11 @@
             position: relative;
             color: var(--text-medium);
         }
-
         .notification-btn button:hover {
             background: var(--primary-color);
             color: white;
             transform: translateY(-2px);
         }
-
         .notification-badge {
             position: absolute;
             top: -5px;
@@ -213,7 +180,6 @@
             justify-content: center;
             font-weight: 600;
         }
-
         .profile-avatar {
             width: 45px;
             height: 45px;
@@ -228,28 +194,25 @@
             transition: all 0.3s ease;
             font-size: 0.9rem;
         }
-
         .profile-avatar:hover {
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
         }
         
-        /* === New Styles for payments.html === */
+        /* === Styles for payments.html === */
         
         .dashboard-content {
             padding: 0 2rem 2rem;
         }
         
-        /* Page Header */
         .page-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap; /* For mobile */
+            flex-wrap: wrap;
             gap: 1rem;
             margin-bottom: 2rem;
         }
-        
         .page-header h1 {
             font-size: 2rem;
             font-weight: 700;
@@ -266,14 +229,27 @@
             font-size: 0.95rem;
             transition: all 0.3s ease;
         }
-        
         .btn-primary-custom:hover {
             background: var(--primary-color);
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
         }
         
-        /* Main Table Card */
+        .btn-outline-custom {
+            background: transparent;
+            color: var(--text-medium);
+            border: 2px solid var(--border-color);
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+        .btn-outline-custom:hover {
+            border-color: var(--text-dark);
+            color: var(--text-dark);
+        }
+        
         .content-card {
             background: var(--white-color);
             padding: 2rem;
@@ -288,19 +264,12 @@
             align-items: center;
             margin-bottom: 2rem;
         }
-
         .card-header-flex h3 {
             font-size: 1.3rem;
             font-weight: 600;
             color: var(--text-dark);
         }
-
-        /* Filter buttons (re-using chart-filter style) */
-        .filter-group {
-            display: flex;
-            gap: 0.5rem;
-        }
-
+        .filter-group { display: flex; gap: 0.5rem; }
         .filter-group button {
             padding: 0.5rem 1.2rem;
             border: 2px solid var(--border-color);
@@ -312,13 +281,11 @@
             font-weight: 500;
             color: var(--text-medium);
         }
-        
         .filter-group button.active {
             background: var(--primary-color);
             border-color: var(--primary-color);
             color: white;
         }
-        
         .filter-group button:hover:not(.active) {
             border-color: var(--primary-color);
             color: var(--primary-color);
@@ -329,53 +296,38 @@
             vertical-align: middle;
             border-color: var(--border-color);
         }
-        
         .table thead th {
             font-weight: 600;
             color: var(--text-medium);
             border-bottom-width: 2px;
             font-size: 0.9rem;
         }
-        
-        .user-info {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-        
+        .user-info { display: flex; align-items: center; gap: 1rem; }
         .user-avatar {
             width: 45px;
             height: 45px;
             border-radius: 0.75rem;
             object-fit: cover;
         }
-        
-        .user-info div {
-            font-weight: 600;
-            color: var(--text-dark);
-        }
-        
+        .user-info div { font-weight: 600; color: var(--text-dark); }
         .user-info span {
             font-weight: 400;
             font-size: 0.85rem;
             color: var(--text-light);
         }
         
-        /* Custom Badges */
         .badge-custom {
             padding: 0.5em 1em;
             border-radius: 0.75rem;
             font-size: 0.8rem;
             font-weight: 600;
         }
-        
         .badge-success { background-color: var(--success-bg); color: var(--success-color); }
         .badge-warning { background-color: var(--warning-bg); color: var(--warning-color); }
         .badge-danger { background-color: var(--danger-bg); color: var(--danger-color); }
         .badge-primary { background-color: var(--primary-bg); color: var(--primary-dark); }
         .badge-light { background-color: var(--border-color); color: var(--text-medium); }
 
-        /* Action Buttons */
         .action-btn {
             background: transparent;
             border: none;
@@ -384,18 +336,13 @@
             border-radius: 0.5rem;
             transition: all 0.2s ease;
         }
-        
         .action-btn:hover {
             background: var(--background-color);
             color: var(--primary-color);
         }
         
         /* Pagination */
-        .pagination {
-            margin-top: 1.5rem;
-            margin-bottom: 0; /* Remove default margin */
-        }
-        
+        .pagination { margin-top: 1.5rem; margin-bottom: 0; }
         .page-link {
             border: none;
             color: var(--text-medium);
@@ -404,24 +351,98 @@
             border-radius: 0.75rem !important;
             font-weight: 500;
         }
-        
-        .page-link:hover {
-            background: var(--border-color);
-            color: var(--text-dark);
-        }
-        
+        .page-link:hover { background: var(--border-color); color: var(--text-dark); }
         .page-item.active .page-link {
             background: var(--primary-color);
             color: var(--white-color);
             box-shadow: 0 4px 12px rgba(124, 58, 237, 0.2);
         }
-        
         .page-item.disabled .page-link {
             background: var(--background-color);
             color: var(--text-light);
         }
         
-        /* Mobile Responsive (Identical to index.html) */
+        /* === NEW: Modal Styling === */
+        .modal-content {
+            border-radius: 1.5rem;
+            border: none;
+            background: var(--white-color);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        .modal-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: var(--white-color);
+            border-bottom: none;
+            padding: 1.5rem 2rem;
+            border-top-left-radius: 1.5rem;
+            border-top-right-radius: 1.5rem;
+        }
+        .modal-header .btn-close {
+            filter: invert(1) grayscale(100%) brightness(200%); /* Makes it white */
+        }
+        .modal-title { font-weight: 600; }
+        .modal-title i { font-size: 1.3rem; }
+        
+        .modal-body { 
+            padding: 2.5rem; 
+            text-align: center;
+        }
+        
+        .invoice-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            background: var(--primary-bg);
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .invoice-details {
+            text-align: left;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 1.5rem;
+        }
+        .invoice-details p { margin-bottom: 0.5rem; color: var(--text-medium); }
+        .invoice-details strong { color: var(--text-dark); }
+        
+        .invoice-total {
+            background: var(--background-color);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            text-align: left;
+        }
+        .invoice-total p {
+            margin: 0;
+            font-size: 1rem;
+            color: var(--text-medium);
+            font-weight: 500;
+        }
+        .invoice-total .total-amount {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+        .invoice-thank-you {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-top: 2rem;
+        }
+        
+        .modal-footer { 
+            border-top: 1px solid var(--border-color); 
+            padding: 1.5rem 2rem; 
+            background: var(--background-color);
+            border-bottom-left-radius: 1.5rem;
+            border-bottom-right-radius: 1.5rem;
+        }
+        /* === END: Modal Styling === */
+        
+        /* Responsive (Identical) */
         @media (max-width: 992px) {
             .sidebar { transform: translateX(-100%); }
             .sidebar.active { transform: translateX(0); }
@@ -436,13 +457,14 @@
             .page-header { flex-direction: column; align-items: stretch; }
             .btn-primary-custom { width: 100%; }
             .filter-group { flex-wrap: wrap; }
+            .modal-body { padding: 2rem 1.5rem; }
         }
         .menu-toggle { display: none; background: var(--primary-color); border: none; width: 56px; height: 56px; border-radius: 50%; color: white; font-size: 1.3rem; cursor: pointer; position: fixed; bottom: 2rem; right: 2rem; z-index: 1001; box-shadow: 0 4px 20px rgba(124, 58, 237, 0.4); transition: all 0.3s ease; }
         .menu-toggle:hover { transform: scale(1.1); }
         @media (max-width: 992px) { .menu-toggle { display: flex; align-items: center; justify-content: center; } }
         .sidebar-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 999; }
         .sidebar-overlay.active { display: block; }
-        /* End Responsive */
+        
     </style>
 </head>
 <body>
@@ -517,102 +539,102 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td><strong>#INV-00125</strong></td>
-                                <td>
+                                <td><strong class="invoice-id">#INV-00125</strong></td>
+                                <td class="user-cell">
                                     <div class="user-info">
                                         <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=45&h=45&q=80" alt="Avatar" class="user-avatar">
                                         <div>
-                                            Sarah Mitchell
-                                            <span class="d-block">sarah.m@example.com</span>
+                                            <span class="user-name">Sarah Mitchell</span>
+                                            <span class="user-email d-block">sarah.m@example.com</span>
                                         </div>
                                     </div>
                                 </td>
-                                <td>Nov 04, 2025</td>
-                                <td><span class="badge-custom badge-primary">Professional</span></td>
-                                <td><strong>$79.00</strong></td>
-                                <td><span class="badge-custom badge-success">Paid</span></td>
+                                <td class="date">Nov 04, 2025</td>
+                                <td class="plan"><span class="badge-custom badge-primary">Professional</span></td>
+                                <td class="amount"><strong>$79.00</strong></td>
+                                <td class="status"><span class="badge-custom badge-success">Paid</span></td>
                                 <td>
-                                    <button class="action-btn" title="View"><i class="fas fa-eye"></i></button>
+                                    <button class="action-btn view-invoice-btn" title="View" data-bs-toggle="modal" data-bs-target="#invoiceModal"><i class="fas fa-eye"></i></button>
                                     <button class="action-btn" title="Download"><i class="fas fa-download"></i></button>
                                 </td>
                             </tr>
                             <tr>
-                                <td><strong>#INV-00124</strong></td>
-                                <td>
+                                <td><strong class="invoice-id">#INV-00124</strong></td>
+                                <td class="user-cell">
                                     <div class="user-info">
                                         <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fDE?auto=format&fit=crop&w=45&h=45&q=80" alt="Avatar" class="user-avatar">
                                         <div>
-                                            Michael Chen
-                                            <span class="d-block">m.chen@example.com</span>
+                                            <span class="user-name">Michael Chen</span>
+                                            <span class="user-email d-block">m.chen@example.com</span>
                                         </div>
                                     </div>
                                 </td>
-                                <td>Nov 03, 2025</td>
-                                <td><span class="badge-custom badge-primary">Starter</span></td>
-                                <td><strong>$29.00</strong></td>
-                                <td><span class="badge-custom badge-success">Paid</span></td>
+                                <td class="date">Nov 03, 2025</td>
+                                <td class="plan"><span class="badge-custom badge-primary">Starter</span></td>
+                                <td class="amount"><strong>$29.00</strong></td>
+                                <td class="status"><span class="badge-custom badge-success">Paid</span></td>
                                 <td>
-                                    <button class="action-btn" title="View"><i class="fas fa-eye"></i></button>
+                                    <button class="action-btn view-invoice-btn" title="View" data-bs-toggle="modal" data-bs-target="#invoiceModal"><i class="fas fa-eye"></i></button>
                                     <button class="action-btn" title="Download"><i class="fas fa-download"></i></button>
                                 </td>
                             </tr>
                             <tr>
-                                <td><strong>#INV-00123</strong></td>
-                                <td>
+                                <td><strong class="invoice-id">#INV-00123</strong></td>
+                                <td class="user-cell">
                                     <div class="user-info">
                                         <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=45&h=45&q=80" alt="Avatar" class="user-avatar">
                                         <div>
-                                            Emily Parker
-                                            <span class="d-block">emily.p@example.com</span>
+                                            <span class="user-name">Emily Parker</span>
+                                            <span class="user-email d-block">emily.p@example.com</span>
                                         </div>
                                     </div>
                                 </td>
-                                <td>Nov 03, 2025</td>
-                                <td><span class="badge-custom badge-primary">Enterprise</span></td>
-                                <td><strong>$199.00</strong></td>
-                                <td><span class="badge-custom badge-success">Paid</span></td>
+                                <td class="date">Nov 03, 2025</td>
+                                <td class="plan"><span class="badge-custom badge-primary">Enterprise</span></td>
+                                <td class="amount"><strong>$199.00</strong></td>
+                                <td class="status"><span class="badge-custom badge-success">Paid</span></td>
                                 <td>
-                                    <button class="action-btn" title="View"><i class="fas fa-eye"></i></button>
+                                    <button class="action-btn view-invoice-btn" title="View" data-bs-toggle="modal" data-bs-target="#invoiceModal"><i class="fas fa-eye"></i></button>
                                     <button class="action-btn" title="Download"><i class="fas fa-download"></i></button>
                                 </td>
                             </tr>
                             <tr>
-                                <td><strong>#INV-00122</strong></td>
-                                <td>
+                                <td><strong class="invoice-id">#INV-00122</strong></td>
+                                <td class="user-cell">
                                     <div class="user-info">
                                         <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?auto=format&fit=crop&w=45&h=45&q=80" alt="Avatar" class="user-avatar">
                                         <div>
-                                            David Lee
-                                            <span class="d-block">david.lee@example.com</span>
+                                            <span class="user-name">David Lee</span>
+                                            <span class="user-email d-block">david.lee@example.com</span>
                                         </div>
                                     </div>
                                 </td>
-                                <td>Nov 02, 2025</td>
-                                <td><span class="badge-custom badge-primary">Professional</span></td>
-                                <td><strong>$79.00</strong></td>
-                                <td><span class="badge-custom badge-warning">Pending</span></td>
+                                <td class="date">Nov 02, 2025</td>
+                                <td class="plan"><span class="badge-custom badge-primary">Professional</span></td>
+                                <td class="amount"><strong>$79.00</strong></td>
+                                <td class="status"><span class="badge-custom badge-warning">Pending</span></td>
                                 <td>
-                                    <button class="action-btn" title="View"><i class="fas fa-eye"></i></button>
+                                    <button class="action-btn view-invoice-btn" title="View" data-bs-toggle="modal" data-bs-target="#invoiceModal"><i class="fas fa-eye"></i></button>
                                     <button class="action-btn" title="Download"><i class="fas fa-download"></i></button>
                                 </td>
                             </tr>
                             <tr>
-                                <td><strong>#INV-00121</strong></td>
-                                <td>
+                                <td><strong class="invoice-id">#INV-00121</strong></td>
+                                <td class="user-cell">
                                     <div class="user-info">
                                         <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=45&h=45&q=80" alt="Avatar" class="user-avatar">
                                         <div>
-                                            Anna Wu
-                                            <span class="d-block">anna.wu@example.com</span>
+                                            <span class="user-name">Anna Wu</span>
+                                            <span class="user-email d-block">anna.wu@example.com</span>
                                         </div>
                                     </div>
                                 </td>
-                                <td>Nov 01, 2025</td>
-                                <td><span class="badge-custom badge-primary">Starter</span></td>
-                                <td><strong>$29.00</strong></td>
-                                <td><span class="badge-custom badge-danger">Failed</span></td>
+                                <td class="date">Nov 01, 2025</td>
+                                <td class="plan"><span class="badge-custom badge-primary">Starter</span></td>
+                                <td class="amount"><strong>$29.00</strong></td>
+                                <td class="status"><span class="badge-custom badge-danger">Failed</span></td>
                                 <td>
-                                    <button class="action-btn" title="View"><i class="fas fa-eye"></i></button>
+                                    <button class="action-btn view-invoice-btn" title="View" data-bs-toggle="modal" data-bs-target="#invoiceModal"><i class="fas fa-eye"></i></button>
                                     <button class="action-btn" title="Download"><i class="fas fa-download"></i></button>
                                 </td>
                             </tr>
@@ -637,6 +659,55 @@
             
         </div>
     </main>
+    
+    <div class="modal fade" id="invoiceModal" tabindex="-1" aria-labelledby="invoiceModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="invoiceModalLabel">
+                        <i class="fas fa-rocket me-2"></i> TechLaunch Pro Invoice
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="invoice-icon">
+                        <i class="fas fa-receipt"></i>
+                    </div>
+                    
+                    <div class="text-center mb-4">
+                        <h2 id="modal-amount" class="fw-bold mb-1">$0.00</h2>
+                        <span id="modal-status" class="badge-custom badge-success">Paid</span>
+                    </div>
+
+                    <div class="row invoice-details">
+                        <div class="col-6">
+                            <p><strong>BILLED TO</strong></p>
+                            <p><strong id="modal-user-name">User Name</strong></p>
+                            <p id="modal-user-email">user@example.com</p>
+                        </div>
+                        <div class="col-6 text-end">
+                            <p><strong>INVOICE ID</strong></p>
+                            <p><strong id="modal-invoice-id">#INV-00000</strong></p>
+                            <p><strong>DATE</strong></p>
+                            <p><strong id="modal-date">YYYY-MM-DD</strong></p>
+                        </div>
+                    </div>
+                    
+                    <div class="invoice-total">
+                        <p>Total for <strong id="modal-plan">Plan Name</strong></p>
+                        <div id="modal-total" class="total-amount"><strong>$0.00</strong></div>
+                    </div>
+
+                    <p class="invoice-thank-you">Thank you for your business!</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-outline-custom" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn-primary-custom"><i class="fas fa-download me-2"></i> Download PDF</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <button class="menu-toggle" id="menuToggle">
         <i class="fas fa-bars"></i>
@@ -645,7 +716,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-        // Mobile Menu Toggle (Identical to index.html)
+        // Mobile Menu Toggle
         const menuToggle = document.getElementById('menuToggle');
         const sidebar = document.getElementById('sidebar');
         const sidebarOverlay = document.getElementById('sidebarOverlay');
@@ -660,7 +731,6 @@
             sidebarOverlay.classList.remove('active');
         });
 
-        // Close sidebar when clicking a link on mobile
         document.querySelectorAll('.sidebar-menu a').forEach(link => {
             link.addEventListener('click', () => {
                 if (window.innerWidth <= 992) {
@@ -669,6 +739,44 @@
                 }
             });
         });
+        
+        // === JAVASCRIPT FOR "WISE" INVOICE MODAL ===
+        
+        const invoiceModal = document.getElementById('invoiceModal');
+        invoiceModal.addEventListener('show.bs.modal', (event) => {
+            const button = event.relatedTarget;
+            const row = button.closest('tr');
+            
+            // Extract data from the row
+            const invoiceId = row.querySelector('.invoice-id').innerText;
+            const userName = row.querySelector('.user-name').innerText;
+            const userEmail = row.querySelector('.user-email').innerText;
+            const date = row.querySelector('.date').innerText;
+            const plan = row.querySelector('.plan').innerText;
+            const amount = row.querySelector('.amount').innerText;
+            const statusHTML = row.querySelector('.status').innerHTML; // Get the badge HTML
+            
+            // Find elements inside the modal
+            const modalInvoiceId = invoiceModal.querySelector('#modal-invoice-id');
+            const modalStatus = invoiceModal.querySelector('#modal-status');
+            const modalUserName = invoiceModal.querySelector('#modal-user-name');
+            const modalUserEmail = invoiceModal.querySelector('#modal-user-email');
+            const modalDate = invoiceModal.querySelector('#modal-date');
+            const modalPlan = invoiceModal.querySelector('#modal-plan');
+            const modalAmount = invoiceModal.querySelector('#modal-amount');
+            const modalTotal = invoiceModal.querySelector('#modal-total');
+
+            // Update the modal's content with the new "nice" design
+            modalInvoiceId.innerText = invoiceId;
+            modalStatus.innerHTML = statusHTML;
+            modalUserName.innerText = userName;
+            modalUserEmail.innerText = userEmail;
+            modalDate.innerText = date;
+            modalPlan.innerText = plan;
+            modalAmount.innerText = amount;
+            modalTotal.innerHTML = `<strong>${amount}</strong>`;
+        });
+        
     </script>
 </body>
 </html>
