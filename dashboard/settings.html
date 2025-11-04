@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - TechLaunch Pro Dashboard</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #9b87f5;
+            --primary-dark: #7c3aed;
+            --accent-color: #f59e0b;
+            --background-color: #f8fafc;
+            --white-color: #FFFFFF;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #94a3b8;
+            --border-color: #e2e8f0;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+            --danger-color: #ef4444;
+            --info-color: #3b82f6;
+            --sidebar-bg: #1e293b;
+            --sidebar-hover: #334155;
+            
+            /* Custom colors for this page */
+            --success-bg: rgba(16, 185, 129, 0.1);
+            --danger-bg: rgba(239, 68, 68, 0.1);
+            --primary-bg: rgba(155, 135, 245, 0.1);
+            --warning-bg: rgba(245, 158, 11, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* Sidebar Styles (Identical to index.html) */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 280px;
+            background: var(--sidebar-bg);
+            padding: 2rem 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            box-shadow: 4px 0 24px rgba(0, 0, 0, 0.12);
+        }
+
+        .sidebar-brand {
+            padding: 0 1.5rem 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .sidebar-brand h3 {
+            color: var(--white-color);
+            font-weight: 700;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .sidebar-brand i {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+        }
+
+        .sidebar-menu {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar-menu li {
+            margin-bottom: 0.25rem;
+        }
+
+        .sidebar-menu a {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 1.5rem;
+            color: var(--text-light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .sidebar-menu a:hover {
+            background: var(--sidebar-hover);
+            color: var(--white-color);
+        }
+
+        .sidebar-menu a.active {
+            background: var(--sidebar-hover);
+            border-left-color: var(--primary-color);
+            color: var(--white-color);
+        }
+
+        .sidebar-menu i {
+            font-size: 1.1rem;
+            width: 24px;
+        }
+
+        /* Main Content (Identical to index.html) */
+        .main-content {
+            margin-left: 280px;
+            min-height: 100vh;
+            transition: all 0.3s ease;
+        }
+
+        /* Top Navigation (Identical to index.html) */
+        .top-nav {
+            background: var(--white-color);
+            padding: 1.5rem 2rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .search-bar {
+            position: relative;
+            width: 400px;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 0.75rem 1rem 0.75rem 3rem;
+            border: 2px solid var(--border-color);
+            border-radius: 0.75rem;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            background: var(--background-color);
+        }
+
+        .search-bar input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(155, 135, 245, 0.1);
+        }
+
+        .search-bar i {
+            position: absolute;
+            left: 1.2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-light);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .notification-btn button {
+            background: var(--background-color);
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            color: var(--text-medium);
+        }
+
+        .notification-btn button:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .notification-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: var(--danger-color);
+            color: white;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            font-size: 0.7rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+
+        .profile-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 0.75rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .profile-avatar:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+        }
+        
+        /* === New Styles for settings.html === */
+        
+        .dashboard-content {
+            padding: 0 2rem 2rem;
+        }
+        
+        /* Page Header */
+        .page-header {
+            margin-bottom: 2rem;
+        }
+        
+        .page-header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+        
+        /* Settings Tabs */
+        .nav-tabs {
+            border-bottom: 2px solid var(--border-color);
+            margin-bottom: 2rem;
+        }
+        
+        .nav-tabs .nav-link {
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-medium);
+            border: none;
+            border-bottom: 4px solid transparent;
+            padding: 1rem 1.5rem;
+        }
+        
+        .nav-tabs .nav-link.active {
+            color: var(--primary-dark);
+            border-bottom-color: var(--primary-dark);
+            background: transparent;
+        }
+        
+        .nav-tabs .nav-link:hover:not(.active) {
+            color: var(--text-dark);
+            border-bottom-color: var(--border-color);
+        }
+        
+        /* Form Card */
+        .content-card {
+            background: var(--white-color);
+            padding: 2.5rem;
+            border-radius: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            border: 1px solid var(--border-color);
+        }
+
+        .content-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .form-label {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text-medium);
+            margin-bottom: 0.5rem;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px solid var(--border-color);
+            border-radius: 0.75rem;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            background: var(--background-color);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(155, 135, 245, 0.1);
+            background: var(--white-color);
+        }
+        
+        .form-control:disabled {
+            background: var(--border-color);
+            opacity: 0.7;
+        }
+        
+        .btn-primary-custom {
+            background: var(--primary-dark);
+            color: var(--white-color);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary-custom:hover {
+            background: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+        }
+        
+        .btn-outline-custom {
+            background: transparent;
+            color: var(--text-medium);
+            border: 2px solid var(--border-color);
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline-custom:hover {
+            border-color: var(--text-dark);
+            color: var(--text-dark);
+        }
+        
+        .btn-danger-custom {
+            background: var(--danger-bg);
+            color: var(--danger-color);
+            border: 2px solid var(--danger-bg);
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-danger-custom:hover {
+            background: var(--danger-color);
+            color: var(--white-color);
+        }
+        
+        .billing-info {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--primary-bg);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            border: 2px solid var(--primary-color);
+        }
+        
+        .billing-info p {
+            margin: 0;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+        
+        .billing-info .plan-name {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--primary-dark);
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .sidebar { transform: translateX(-100%); }
+            .sidebar.active { transform: translateX(0); }
+            .main-content { margin-left: 0; }
+            .search-bar { width: 100%; max-width: 300px; }
+        }
+        @media (max-width: 576px) {
+            .top-nav { flex-direction: column; gap: 1rem; padding: 1rem; }
+            .search-bar { width: 100%; max-width: 100%; }
+            .dashboard-content { padding: 0 1rem 1rem; }
+            .content-card { padding: 1.5rem; }
+            .nav-tabs .nav-link { padding: 1rem 0.5rem; font-size: 0.9rem; }
+        }
+        .menu-toggle { display: none; background: var(--primary-color); border: none; width: 56px; height: 56px; border-radius: 50%; color: white; font-size: 1.3rem; cursor: pointer; position: fixed; bottom: 2rem; right: 2rem; z-index: 1001; box-shadow: 0 4px 20px rgba(124, 58, 237, 0.4); transition: all 0.3s ease; }
+        .menu-toggle:hover { transform: scale(1.1); }
+        @media (max-width: 992px) { .menu-toggle { display: flex; align-items: center; justify-content: center; } }
+        .sidebar-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 999; }
+        .sidebar-overlay.active { display: block; }
+        /* End Responsive */
+    </style>
+</head>
+<body>
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-brand">
+            <h3><i class="fas fa-rocket"></i> TechLaunch Pro</h3>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="index.html"><i class="fas fa-home"></i> Dashboard</a></li>
+            <li><a href="users.html"><i class="fas fa-users"></i> Users</a></li>
+            <li><a href="plans.html"><i class="fas fa-layer-group"></i> Plans</a></li>
+            <li><a href="payments.html"><i class="fas fa-credit-card"></i> Payments</a></li>
+            <li><a href="settings.html" class="active"><i class="fas fa-cog"></i> Settings</a></li>
+            <li><a href="../index.html"><i class="fas fa-arrow-left"></i> Back to Site</a></li>
+            <li><a href="../auth/login.html"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+        </ul>
+    </aside>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <main class="main-content">
+        <nav class="top-nav">
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search...">
+            </div>
+            <div class="nav-actions">
+                <div class="notification-btn">
+                    <button>
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </button>
+                </div>
+                <div class="profile-dropdown">
+                    <div class="profile-avatar">JD</div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="dashboard-content">
+            
+            <div class="page-header">
+                <h1>Account Settings</h1>
+            </div>
+
+            <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <button class="nav-link active" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="true">Profile</button>
+                    <button class="nav-link" id="nav-password-tab" data-bs-toggle="tab" data-bs-target="#nav-password" type="button" role="tab" aria-controls="nav-password" aria-selected="false">Password</button>
+                    <button class="nav-link" id="nav-billing-tab" data-bs-toggle="tab" data-bs-target="#nav-billing" type="button" role="tab" aria-controls="nav-billing" aria-selected="false">Billing</button>
+                </div>
+            </nav>
+            
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
+                    <div class="content-card">
+                        <h3>Profile Information</h3>
+                        <form>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="firstName" class="form-label">First Name</label>
+                                    <input type="text" class="form-control" id="firstName" value="John">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="lastName" class="form-label">Last Name</label>
+                                    <input type="text" class="form-control" id="lastName" value="Doe">
+                                </div>
+                                <div class="col-12">
+                                    <label for="email" class="form-label">Email Address</label>
+                                    <input type="email" class="form-control" id="email" value="john.doe@example.com" disabled>
+                                </div>
+                                <div class="col-12">
+                                    <label for="bio" class="form-label">Bio</label>
+                                    <textarea class="form-control" id="bio" rows="4" placeholder="Tell us a bit about yourself..."></textarea>
+                                </div>
+                                <div class="col-12 text-end">
+                                    <button type="submit" class="btn-primary-custom">Save Changes</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
+                <div class="tab-pane fade" id="nav-password" role="tabpanel" aria-labelledby="nav-password-tab" tabindex="0">
+                    <div class="content-card">
+                        <h3>Change Password</h3>
+                        <form>
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <label for="currentPassword" class="form-label">Current Password</label>
+                                    <input type="password" class="form-control" id="currentPassword">
+                                </div>
+                                <div class="col-12">
+                                    <label for="newPassword" class="form-label">New Password</label>
+                                    <input type="password" class="form-control" id="newPassword">
+                                </div>
+                                <div class="col-12">
+                                    <label for="confirmPassword" class="form-label">Confirm New Password</label>
+                                    <input type="password" class="form-control" id="confirmPassword">
+                                </div>
+                                <div class="col-12 text-end">
+                                    <button type="submit" class="btn-primary-custom">Update Password</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
+                <div class="tab-pane fade" id="nav-billing" role="tabpanel" aria-labelledby="nav-billing-tab" tabindex="0">
+                    <div class="content-card mb-4">
+                        <h3>Billing Information</h3>
+                        <div class="billing-info mb-4">
+                            <div>
+                                <p>Your current plan is</p>
+                                <p class="plan-name">Professional Plan</p>
+                            </div>
+                            <button class="btn-outline-custom">Change Plan</button>
+                        </div>
+                        
+                        <h5>Payment Method</h5>
+                        <div class="d-flex align-items-center justify-content-between p-3 border rounded-3">
+                            <div class_ ="d-flex align-items-center gap-3">
+                                <i class="fab fa-cc-visa fa-2x" style="color: #1a1f71;"></i>
+                                <div>
+                                    <p class="mb-0 fw-bold">Visa ending in 1234</p>
+                                    <p class="mb-0 text-medium">Expires 12/2028</p>
+                                </div>
+                            </div>
+                            <button class="btn-outline-custom btn-sm">Edit</button>
+                        </div>
+                    </div>
+                    
+                    <div class="content-card">
+                        <h3>Danger Zone</h3>
+                        <div class="d-flex align-items-center justify-content-between p-3 border border-danger rounded-3">
+                            <div>
+                                <p class="mb-0 fw-bold">Cancel Subscription</p>
+                                <p class="mb-0 text-medium">Your plan will be cancelled at the end of the current billing period.</p>
+                            </div>
+                            <button class="btn-danger-custom">Cancel Subscription</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </main>
+
+    <button class="menu-toggle" id="menuToggle">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Mobile Menu Toggle (Identical to index.html)
+        const menuToggle = document.getElementById('menuToggle');
+        const sidebar = document.getElementById('sidebar');
+        const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+        menuToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+            sidebarOverlay.classList.toggle('active');
+        });
+
+        sidebarOverlay.addEventListener('click', () => {
+            sidebar.classList.remove('active');
+            sidebarOverlay.classList.remove('active');
+        });
+
+        // Close sidebar when clicking a link on mobile
+        document.querySelectorAll('.sidebar-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 992) {
+                    sidebar.classList.remove('active');
+                    sidebarOverlay.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

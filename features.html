@@ -5,16 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Features - TechLaunch Pro</title>
     
-    <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     
-    <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- AOS Animation -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
     
     <style>
@@ -38,17 +34,23 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--background-color);
+            background-color: var(--white); /* Changed to white for a clean feature page bg */
             color: var(--text-primary);
             overflow-x: hidden;
         }
 
-        /* Navbar Styles */
+        /* Navbar Styles (Same as index.html) */
         .navbar-custom {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             box-shadow: var(--shadow);
             padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-custom.scrolled {
+            padding: 0.5rem 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
         }
 
         .navbar-brand {
@@ -73,8 +75,19 @@
             color: var(--primary-color);
         }
 
-        .nav-link.active {
-            color: var(--primary-color);
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
         }
 
         .btn-custom-primary {
@@ -110,54 +123,58 @@
             transform: translateY(-3px);
         }
 
-        /* Page Header */
-        .page-header {
-            padding: 10rem 0 6rem;
+        /* Page Hero Section */
+        .page-hero {
+            padding: 6rem 0 4rem;
             background: linear-gradient(135deg, var(--background-color) 0%, var(--primary-color) 100%);
             text-align: center;
             position: relative;
             overflow: hidden;
         }
 
-        .page-header::before {
+        .page-hero::before {
             content: '';
             position: absolute;
-            width: 400px;
-            height: 400px;
+            width: 300px;
+            height: 300px;
             background: var(--accent-color);
             border-radius: 50%;
-            top: -200px;
-            right: -200px;
+            top: -150px;
+            right: -150px;
             opacity: 0.3;
             filter: blur(100px);
         }
 
-        .page-header h1 {
-            font-size: 3.5rem;
+        .page-hero h1 {
+            font-size: 3rem;
             font-weight: 700;
             color: var(--dark);
             margin-bottom: 1rem;
         }
 
-        .page-header p {
-            font-size: 1.3rem;
+        .page-hero p {
+            font-size: 1.2rem;
             color: var(--text-secondary);
-            max-width: 700px;
+            max-width: 600px;
             margin: 0 auto;
         }
 
-        /* Feature Detail Section */
-        .feature-detail {
+        /* Detailed Feature Section */
+        .detailed-feature-section {
             padding: 6rem 0;
+        }
+        
+        /* Adds alternating background colors for sections */
+        .detailed-feature-section:nth-child(odd) {
             background: var(--white);
         }
-
-        .feature-detail:nth-child(even) {
-            background: var(--background-color);
+        
+        .detailed-feature-section:nth-child(even) {
+            background: #F9F9F9; /* A very light grey for contrast */
         }
 
         .feature-content h2 {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             font-weight: 700;
             color: var(--dark);
             margin-bottom: 1.5rem;
@@ -176,88 +193,47 @@
         }
 
         .feature-list li {
-            padding: 1rem 0;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
             display: flex;
-            align-items: start;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-        }
-
-        .feature-list li:last-child {
-            border-bottom: none;
+            align-items: center;
         }
 
         .feature-list i {
-            width: 40px;
-            height: 40px;
+            font-size: 1.2rem;
+            color: var(--accent-color);
+            margin-right: 1rem;
+            width: 30px;
+            height: 30px;
             background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-            border-radius: 0.8rem;
-            display: flex;
+            color: var(--dark);
+            border-radius: 50%;
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-            margin-right: 1rem;
             flex-shrink: 0;
-            color: var(--dark);
-            font-size: 1.1rem;
-        }
-
-        .feature-list-content h4 {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: var(--dark);
-            margin-bottom: 0.3rem;
-        }
-
-        .feature-list-content p {
-            font-size: 1rem;
-            color: var(--text-secondary);
-            margin: 0;
-        }
-
-        .feature-image {
-            position: relative;
         }
 
         .feature-image img {
             width: 100%;
             border-radius: 1.5rem;
             box-shadow: var(--shadow);
+            transition: all 0.3s ease;
         }
 
-        /* Stats Section */
-        .stats-section {
+        .feature-image img:hover {
+            transform: scale(1.03);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        /* Secondary Features Grid */
+        .features-grid-section {
             padding: 6rem 0;
-            background: linear-gradient(135deg, var(--dark) 0%, #34495E 100%);
-            color: var(--white);
-        }
-
-        .stat-card {
-            text-align: center;
-            padding: 2rem;
-        }
-
-        .stat-number {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .stat-label {
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-
-        /* Integration Section */
-        .integration-section {
-            padding: 6rem 0;
-            background: var(--white);
-            text-align: center;
+            background: var(--background-color);
         }
 
         .section-title {
+            text-align: center;
             margin-bottom: 4rem;
         }
 
@@ -275,60 +251,84 @@
             margin: 0 auto;
         }
 
-        .integration-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 2rem;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .integration-item {
-            background: var(--background-color);
+        .feature-card {
+            background: var(--white);
             border-radius: 1.5rem;
-            padding: 2rem;
-            transition: all 0.3s ease;
+            padding: 2.5rem;
             box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            height: 100%;
+            border: 2px solid transparent;
         }
 
-        .integration-item:hover {
+        .feature-card:hover {
             transform: translateY(-10px);
             box-shadow: var(--shadow-hover);
+            border-color: var(--primary-color);
         }
 
-        .integration-item i {
-            font-size: 3rem;
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            border-radius: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
             color: var(--dark);
-            margin-bottom: 1rem;
         }
 
-        .integration-item h5 {
+        .feature-card h3 {
+            font-size: 1.5rem;
             font-weight: 600;
+            margin-bottom: 1rem;
             color: var(--dark);
-            margin: 0;
         }
 
-        /* CTA Section */
+        .feature-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* CTA Section (Same as index.html) */
         .cta-section {
             padding: 6rem 0;
-            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            background: linear-gradient(135deg, var(--dark) 0%, #34495E 100%);
+            color: var(--white);
             text-align: center;
         }
 
         .cta-section h2 {
             font-size: 2.5rem;
             font-weight: 700;
-            color: var(--dark);
             margin-bottom: 1.5rem;
         }
 
         .cta-section p {
             font-size: 1.2rem;
-            color: var(--text-primary);
             margin-bottom: 2.5rem;
+            opacity: 0.9;
         }
 
-        /* Footer */
+        .btn-custom-white {
+            background: var(--white);
+            color: var(--dark);
+            font-weight: 600;
+            padding: 0.9rem 2.5rem;
+            border-radius: 1.5rem;
+            border: none;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+        }
+
+        .btn-custom-white:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        /* Footer (Same as index.html) */
         .footer {
             background: var(--dark);
             color: var(--white);
@@ -386,31 +386,48 @@
             color: rgba(255, 255, 255, 0.6);
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .page-header h1 {
-                font-size: 2.5rem;
-            }
+        /* Preloader (Same as index.html) */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--background-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
 
-            .feature-content h2 {
-                font-size: 2rem;
-            }
+        .preloader.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
 
-            .stat-number {
-                font-size: 2.5rem;
-            }
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid var(--primary-color);
+            border-top-color: var(--accent-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
 
-            .integration-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
         }
     </style>
 </head>
 <body>
-    <!-- Navbar -->
+    <div class="preloader" id="preloader">
+        <div class="spinner"></div>
+    </div>
+
     <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="../index.html">
+            <a class="navbar-brand" href="index.html">
                 <i class="fas fa-rocket me-2"></i>TechLaunch Pro
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -419,10 +436,10 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto align-items-center">
                     <li class="nav-item">
-                        <a class="nav-link" href="../index.html">Home</a>
+                        <a class="nav-link" href="index.html">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="features.html">Features</a>
+                        <a class="nav-link" href="features.html">Features</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="pricing.html">Pricing</a>
@@ -442,226 +459,171 @@
         </div>
     </nav>
 
-    <!-- Page Header -->
-    <section class="page-header">
+    <section class="page-hero">
         <div class="container">
-            <div data-aos="fade-up">
-                <h1>Powerful Features for Your Success</h1>
-                <p>Everything you need to build, launch, and scale your SaaS business</p>
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <h1 data-aos="fade-up">The All-in-One Platform for Your SaaS</h1>
+                    <p data-aos="fade-up" data-aos-delay="100">
+                        Explore the powerful features that make TechLaunch Pro the perfect choice 
+                        to build, manage, and scale your software business.
+                    </p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Feature Detail 1 -->
-    <section class="feature-detail">
+    <section class="detailed-feature-section">
         <div class="container">
-            <div class="row align-items-center">
+            <div class="row align-items-center g-5">
                 <div class="col-lg-6" data-aos="fade-right">
                     <div class="feature-content">
-                        <h2>Advanced Analytics Dashboard</h2>
-                        <p>Get real-time insights into your business performance with our comprehensive analytics platform. Track key metrics, monitor user behavior, and make data-driven decisions with confidence.</p>
+                        <h2>Powerful Admin Dashboard</h2>
+                        <p>Get a bird's-eye view of your entire business. Our intuitive dashboard provides real-time insights into revenue, user signups, and subscription metrics, all in one place.</p>
                         <ul class="feature-list">
-                            <li>
-                                <i class="fas fa-chart-line"></i>
-                                <div class="feature-list-content">
-                                    <h4>Real-time Metrics</h4>
-                                    <p>Monitor revenue, user growth, and engagement in real-time</p>
-                                </div>
-                            </li>
-                            <li>
-                                <i class="fas fa-chart-pie"></i>
-                                <div class="feature-list-content">
-                                    <h4>Custom Reports</h4>
-                                    <p>Create and export detailed reports tailored to your needs</p>
-                                </div>
-                            </li>
-                            <li>
-                                <i class="fas fa-bell"></i>
-                                <div class="feature-list-content">
-                                    <h4>Smart Alerts</h4>
-                                    <p>Get notified about important changes and milestones</p>
-                                </div>
-                            </li>
+                            <li><i class="fas fa-check"></i> Real-time revenue tracking (MRR & ARR)</li>
+                            <li><i class="fas fa-check"></i> New user and churn rate analytics</li>
+                            <li><i class="fas fa-check"></i> Customizable reports and data exports</li>
                         </ul>
+                        <a href="auth/register.html" class="btn btn-custom-primary mt-3">Get Started</a>
                     </div>
                 </div>
                 <div class="col-lg-6" data-aos="fade-left">
                     <div class="feature-image">
-                        <img src="https://via.placeholder.com/600x400/E6E6FA/2C3E50?text=Analytics+Dashboard" alt="Analytics">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&h=450&q=80" alt="Admin Dashboard">
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Feature Detail 2 -->
-    <section class="feature-detail">
+    <section class="detailed-feature-section">
         <div class="container">
-            <div class="row align-items-center">
+            <div class="row align-items-center g-5">
                 <div class="col-lg-6 order-lg-2" data-aos="fade-left">
                     <div class="feature-content">
-                        <h2>Team Collaboration Tools</h2>
-                        <p>Work seamlessly with your team members. Assign roles, manage permissions, track projects, and communicate effectively all in one place.</p>
+                        <h2>Seamless Payment Integration</h2>
+                        <p>Start accepting payments from day one. We integrate with Stripe and PayPal to provide a secure and seamless checkout experience for your customers, supporting global currencies and subscriptions.</p>
                         <ul class="feature-list">
-                            <li>
-                                <i class="fas fa-users-cog"></i>
-                                <div class="feature-list-content">
-                                    <h4>Role Management</h4>
-                                    <p>Define custom roles and permissions for team members</p>
-                                </div>
-                            </li>
-                            <li>
-                                <i class="fas fa-comments"></i>
-                                <div class="feature-list-content">
-                                    <h4>Team Chat</h4>
-                                    <p>Built-in messaging for instant team communication</p>
-                                </div>
-                            </li>
-                            <li>
-                                <i class="fas fa-tasks"></i>
-                                <div class="feature-list-content">
-                                    <h4>Task Management</h4>
-                                    <p>Organize projects and track progress efficiently</p>
-                                </div>
-                            </li>
+                            <li><i class="fas fa-check"></i> Secure processing with Stripe & PayPal</li>
+                            <li><i class="fas fa-check"></i> Automated invoicing and dunning</li>
+                            <li><i class="fas fa-check"></i> Multi-currency and tax support</li>
                         </ul>
+                         <a href="pricing.html" class="btn btn-custom-primary mt-3">View Pricing</a>
                     </div>
                 </div>
                 <div class="col-lg-6 order-lg-1" data-aos="fade-right">
                     <div class="feature-image">
-                        <img src="https://via.placeholder.com/600x400/FFDAB9/2C3E50?text=Team+Collaboration" alt="Collaboration">
+                        <img src="https://images.unsplash.com/photo-1560520641-3d2b2787d32c?auto=format&fit=crop&w=600&h=450&q=80" alt="Payment Integration">
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Feature Detail 3 -->
-    <section class="feature-detail">
+    
+    <section class="detailed-feature-section">
         <div class="container">
-            <div class="row align-items-center">
+            <div class="row align-items-center g-5">
                 <div class="col-lg-6" data-aos="fade-right">
                     <div class="feature-content">
-                        <h2>Secure Payment Processing</h2>
-                        <p>Accept payments globally with integrated payment gateways. Automatic invoicing, subscription management, and secure transactions out of the box.</p>
+                        <h2>Complete User Management</h2>
+                        <p>Manage your users, teams, and permissions with ease. Our platform includes built-in authentication, role-based access control, and team collaboration features right out of the box.</p>
                         <ul class="feature-list">
-                            <li>
-                                <i class="fas fa-credit-card"></i>
-                                <div class="feature-list-content">
-                                    <h4>Multiple Payment Methods</h4>
-                                    <p>Support for Stripe, PayPal, and major credit cards</p>
-                                </div>
-                            </li>
-                            <li>
-                                <i class="fas fa-sync"></i>
-                                <div class="feature-list-content">
-                                    <h4>Recurring Billing</h4>
-                                    <p>Automated subscription and invoice management</p>
-                                </div>
-                            </li>
-                            <li>
-                                <i class="fas fa-shield-alt"></i>
-                                <div class="feature-list-content">
-                                    <h4>PCI Compliant</h4>
-                                    <p>Bank-level security for all transactions</p>
-                                </div>
-                            </li>
+                            <li><i class="fas fa-check"></i> Secure user authentication (SSO, 2FA)</li>
+                            <li><i class="fas fa-check"></i> Team and organization management</li>
+                            <li><i class="fas fa-check"></i> Role-based access control (RBAC)</li>
                         </ul>
+                         <a href="contact.html" class="btn btn-custom-primary mt-3">Request a Demo</a>
                     </div>
                 </div>
                 <div class="col-lg-6" data-aos="fade-left">
                     <div class="feature-image">
-                        <img src="https://via.placeholder.com/600x400/E6E6FA/2C3E50?text=Payment+Processing" alt="Payments">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&h=450&q=80" alt="User Management">
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Stats Section -->
-    <section class="stats-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0" data-aos="fade-up" data-aos-delay="100">
-                    <div class="stat-card">
-                        <div class="stat-number counter" data-target="50000">0</div>
-                        <div class="stat-label">Active Users</div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0" data-aos="fade-up" data-aos-delay="200">
-                    <div class="stat-card">
-                        <div class="stat-number counter" data-target="99">0</div>
-                        <div class="stat-label">Uptime %</div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0" data-aos="fade-up" data-aos-delay="300">
-                    <div class="stat-card">
-                        <div class="stat-number counter" data-target="150">0</div>
-                        <div class="stat-label">Countries</div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
-                    <div class="stat-card">
-                        <div class="stat-number counter" data-target="24">0</div>
-                        <div class="stat-label">Hour Support</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Integration Section -->
-    <section class="integration-section">
+    <section class="features-grid-section">
         <div class="container">
             <div class="section-title" data-aos="fade-up">
-                <h2>Seamless Integrations</h2>
-                <p>Connect with your favorite tools and services</p>
+                <h2>And So Much More...</h2>
+                <p>Everything you need for a modern software business is included.</p>
             </div>
-            <div class="integration-grid">
-                <div class="integration-item" data-aos="zoom-in" data-aos-delay="100">
-                    <i class="fab fa-stripe"></i>
-                    <h5>Stripe</h5>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-blog"></i>
+                        </div>
+                        <h3>Blog Management</h3>
+                        <p>A built-in, SEO-ready blog. Publish content, engage your audience, and drive organic traffic.</p>
+                    </div>
                 </div>
-                <div class="integration-item" data-aos="zoom-in" data-aos-delay="150">
-                    <i class="fab fa-paypal"></i>
-                    <h5>PayPal</h5>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <h3>Theme Customization</h3>
+                        <p>Match your brand with light/dark modes and customizable color themes for the dashboard.</p>
+                    </div>
                 </div>
-                <div class="integration-item" data-aos="zoom-in" data-aos-delay="200">
-                    <i class="fab fa-google"></i>
-                    <h5>Google</h5>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Enterprise Security</h3>
+                        <p>Bank-level encryption, regular security audits, and GDPR compliance to keep your data safe.</p>
+                    </div>
                 </div>
-                <div class="integration-item" data-aos="zoom-in" data-aos-delay="250">
-                    <i class="fab fa-slack"></i>
-                    <h5>Slack</h5>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3>Transactional Emails</h3>
+                        <p>Pre-built, beautiful email templates for welcome messages, password resets, and invoices.</p>
+                    </div>
                 </div>
-                <div class="integration-item" data-aos="zoom-in" data-aos-delay="300">
-                    <i class="fab fa-mailchimp"></i>
-                    <h5>Mailchimp</h5>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>Developer-Friendly API</h3>
+                        <p>A robust REST API to integrate your existing tools and build custom functionality.</p>
+                    </div>
                 </div>
-                <div class="integration-item" data-aos="zoom-in" data-aos-delay="350">
-                    <i class="fab fa-github"></i>
-                    <h5>GitHub</h5>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h3>24/7 Premium Support</h3>
+                        <p>Our dedicated support team is always here to help you succeed. Chat, email, or call anytime.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
     <section class="cta-section">
         <div class="container" data-aos="zoom-in">
-            <h2>Ready to Get Started?</h2>
-            <p>Join thousands of teams already using TechLaunch Pro</p>
-            <a href="../auth/register.html" class="btn btn-custom-primary btn-lg">Start Free Trial</a>
+            <h2>Ready to Transform Your Business?</h2>
+            <p>Join thousands of teams already growing with TechLaunch Pro</p>
+            <a href="auth/register.html" class="btn btn-custom-white btn-lg">Start Your Free Trial</a>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 mb-4 mb-lg-0">
                     <h5><i class="fas fa-rocket me-2"></i>TechLaunch Pro</h5>
-                    <p class="text-muted">The complete SaaS platform to launch, manage, and grow your business.</p>
+                    <p>The complete SaaS platform to launch, manage, and grow your business.</p>
                     <div class="social-links mt-3">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
@@ -712,10 +674,8 @@
         </div>
     </footer>
 
-    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     
-    <!-- AOS Animation -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     
     <script>
@@ -726,48 +686,23 @@
             offset: 100
         });
 
-        // Counter animation
-        function animateCounter(element) {
-            const target = parseInt(element.getAttribute('data-target'));
-            const duration = 2000;
-            const increment = target / (duration / 16);
-            let current = 0;
+        // Preloader
+        window.addEventListener('load', function() {
+            const preloader = document.getElementById('preloader');
+            setTimeout(function() {
+                preloader.classList.add('hidden');
+            }, 500);
+        });
 
-            const updateCounter = () => {
-                current += increment;
-                if (current < target) {
-                    element.textContent = Math.floor(current);
-                    requestAnimationFrame(updateCounter);
-                } else {
-                    element.textContent = target;
-                }
-            };
-
-            updateCounter();
-        }
-
-        // Trigger counter animation when in viewport
-        const observerOptions = {
-            threshold: 0.5
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const counters = entry.target.querySelectorAll('.counter');
-                    counters.forEach(counter => {
-                        if (counter.textContent === '0') {
-                            animateCounter(counter);
-                        }
-                    });
-                }
-            });
-        }, observerOptions);
-
-        const statsSection = document.querySelector('.stats-section');
-        if (statsSection) {
-            observer.observe(statsSection);
-        }
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar-custom');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
     </script>
 </body>
 </html>
